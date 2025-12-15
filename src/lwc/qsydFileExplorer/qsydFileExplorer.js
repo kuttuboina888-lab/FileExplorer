@@ -140,7 +140,11 @@ export default class QsydFileExplorerCmp extends LightningElement {
 				this.retrieveFileExplorerItemMap();
 			} else {
 				this.showSpinner = true;
-				this.template.querySelector('lightning-layout.no-access').classList.remove('slds-hidden');
+				const el = this.template.querySelector('lightning-layout.no-access');
+                     if (el) {
+                    el.classList.remove('slds-hidden');
+                  } 
+
 
 				this.dispatchEvent(
 					new CustomEvent(
